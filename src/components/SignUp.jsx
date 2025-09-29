@@ -1,5 +1,3 @@
-import React from 'react';
-
 const SignUp = () => {
   return (
     // Container principal da página
