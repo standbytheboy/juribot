@@ -11,8 +11,8 @@ const Header = () => {
 
   return (
     // Container principal do header com fundo e bordas
-    <header className="w-full bg-[#6b5f5b] p-2 font-sans">
-      <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-sm">
+    <header className="w-full bg-[#fdf5ec] p-2 font-sans">
+      <div className="max-w-7xl mx-auto rounded-lg">
         <nav className="flex items-center justify-between p-4 sm:p-6">
           
           {/* Logo JuriBot */}

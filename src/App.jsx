@@ -1,12 +1,13 @@
 import './App.css'
 import Header from './components/Header'
-import SignUp from './components/SignUp'
+import Hero from './components/Hero'
 
 function App() {
 
   return (
     <>
-      <SignUp />
+      <Header />
+      <Hero/>
     </>
   )
 }
