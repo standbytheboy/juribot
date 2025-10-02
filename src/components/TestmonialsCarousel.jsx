@@ -31,7 +31,7 @@ const testimonials = [
 const TestimonialsCarousel = () => {
   return (
     <section className="py-20 sm:py-24 font-sans">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto">
         <h2 className="text-4xl sm:text-5xl font-extrabold text-[#544b47] text-center mb-12">
           Depoimentos
         </h2>

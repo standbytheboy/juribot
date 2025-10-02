@@ -1,4 +1,4 @@
-import mascotImage from '../assets/juribot-mascot.png';
+import mascotImage from '../assets/mascot-highlight.png';
 import TestimonialsCarousel from './TestmonialsCarousel';
 
 const Highlights = () => {
@@ -12,7 +12,7 @@ const Highlights = () => {
             <img 
               src={mascotImage} 
               alt="Mascote Juribot"
-              className="w-auto h-64 z-10"
+              className="w-auto h-80 z-10"
             />
             {/* Base marrom sob o mascote */}
             <div className="absolute bottom-4 h-8 w-64 bg-[#544b47] rounded-full"></div>

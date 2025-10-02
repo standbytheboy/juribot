@@ -1,5 +1,5 @@
 import { Envelope, Location } from 'akar-icons';
-import mascotContact from '../assets/juribot-mascot.png';
+import mascotContact from '../assets/mascot-contact.png';
 
 const Contact = () => {
   return (
@@ -39,7 +39,7 @@ const Contact = () => {
 
             {/* Coluna de Informações (Direita) */}
             <div className="w-full md:w-1/2 flex flex-col items-center justify-center text-center md:text-left">
-              <img src={mascotContact} alt="Mascote Juribot" className="w-48 h-48 mb-8" />
+              <img src={mascotContact} alt="Mascote Juribot" className="w-80 h-80 mb-8" />
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <Envelope className="w-6 h-6 text-[#544b47]" />
