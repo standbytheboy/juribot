@@ -1,22 +1,24 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import About from './components/About'
-import Contact from './components/Contact'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import Highlights from './components/Highlights'
-import HowItWorks from './components/HowItWorks'
-import TestimonialsCarousel from './components/TestmonialsCarousel'
+import Chat from './pages/Chat'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
+import ResetPassword from './pages/ResetPassword'
 
 function App() {
 
   return (
     <>
-      <Header />
-      <Hero/>
-      <HowItWorks />
-      <About />
-      <Highlights />
-      <Contact />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/chat' element={<Chat />}/>
+          <Route path='/login' element={<Login />}/>
+          <Route path='/signup' element={<SignUp />}/>
+          <Route path='/password' element={<ResetPassword />}/>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

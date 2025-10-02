@@ -12,14 +12,14 @@ const Header = () => {
 
   return (
     // Container principal do header com fundo e bordas
-    <header className="w-full bg-[#fdf5ec] font-sans max-h-24">
+    <header className="w-full bg-[#fdf5ec] font-sans py-2">
       <div className="max-w-7xl mx-auto rounded-lg">
         <nav className="flex items-center justify-between p-4 sm:p-6">
           
           {/* Logo JuriBot */}
           <div className="flex items-center mr-6 w-40">
             <a href="/" className="flex flex-col items-center text-[#544b47]">
-              <img src={Logo} alt="" />
+              <img src={Logo} alt="Logo Juribot" />
             </a>
           </div>
 
