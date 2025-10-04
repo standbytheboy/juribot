@@ -1,4 +1,3 @@
-// /api/routes/chat.js
 import { Router } from 'express';
 import { VertexAI } from '@google-cloud/vertexai';
 import authMiddleware from '../middleware/authMiddleware.js';
