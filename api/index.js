@@ -1,4 +1,3 @@
-// /api/index.js
 import dotenv from 'dotenv';
 dotenv.config(); // Garante que as variáveis de ambiente sejam carregadas primeiro
 
