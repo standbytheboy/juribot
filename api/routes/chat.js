@@ -1,15 +1,17 @@
+// /api/routes/chat.js
 import { Router } from 'express';
-import OpenAI from 'openai';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = Router();
 
-// Instancia o cliente da OpenAI com a chave de API
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Valida se a chave de API existe
+if (!process.env.GEMINI_API_KEY) {
+  throw new Error("A variável de ambiente GEMINI_API_KEY não está definida.");
+}
 
-// Rota POST para /api/chat
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
 router.post('/', authMiddleware, async (req, res) => {
   const { message } = req.body;
 
@@ -18,28 +20,20 @@ router.post('/', authMiddleware, async (req, res) => {
   }
 
   try {
-    // Chamada para a API da OpenAI
-    const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo", // Modelo de linguagem
-      messages: [
-        {
-          role: "system",
-          content: "Você é o JuriBot, um assistente jurídico amigável e prestativo. Sua missão é fornecer orientações claras e acessíveis sobre direitos, com base na legislação brasileira. Não forneça conselhos legais formais, mas sim informações educativas."
-        },
-        {
-          role: "user",
-          content: message
-        }
-      ],
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash-latest",
+      // A instrução do sistema (personalidade do bot) é passada aqui
+      systemInstruction: "Você é o JuriBot, um assistente jurídico amigável e prestativo. Sua missão é fornecer orientações claras e acessíveis sobre direitos, com base na legislação brasileira. Não forneça conselhos legais formais, mas sim informações educativas.",
     });
 
-    const aiResponse = completion.choices[0].message.content;
-
-    // Envia a resposta da IA de volta para o frontend
+    const result = await model.generateContent(message);
+    const response = result.response;
+    const aiResponse = response.text();
+    
     res.status(200).json({ reply: aiResponse });
 
   } catch (error) {
-    console.error('Erro na API da OpenAI:', error);
+    console.error('Erro na API do Gemini:', error);
     res.status(500).json({ error: 'Ocorreu um erro ao comunicar com a IA.' });
   }
 });

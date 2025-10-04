@@ -1,57 +1,87 @@
+// frontend/src/pages/SignUp.jsx
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
 const SignUp = () => {
+  const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.username || !formData.email || !formData.password) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Cadastro realizado com sucesso! Você será redirecionado para o login.');
+        navigate('/login');
+      } else {
+        const data = await response.json();
+        alert(`Erro no cadastro: ${data.error || 'Tente novamente.'}`);
+      }
+    } catch (error) {
+      console.error('Erro ao cadastrar:', error);
+      alert('Ocorreu um erro. Verifique o console.');
+    }
+  };
+
   return (
-    // Container principal da página
     <div className="flex items-center justify-center min-h-screen bg-[#6b5f5b] p-4 font-sans">
-      
-      {/* Container principal do card */}
       <div className="flex flex-col md:flex-row w-full max-w-4xl bg-white shadow-lg rounded-2xl overflow-hidden">
-        
-        {/* Painel Esquerdo (Call to action para login) */}
         <div className="w-full md:w-1/2 p-10 sm:p-12 flex flex-col justify-center items-center text-center bg-[#544b47] text-white">
-          <h2 className="text-4xl font-extrabold mb-4 leading-tight w-2xs">Já tem uma conta?</h2>
+          <h2 className="text-4xl font-extrabold mb-4 leading-tight">Já tem uma conta?</h2>
           <p className="mb-8 text-gray-300">Acesse a sua conta agora mesmo</p>
-          <button 
-            className="w-full max-w-xs px-6 py-3 border-2 border-white rounded-full font-bold text-lg hover:bg-white hover:text-[#544b47] transition-colors duration-300 cursor-pointer"
-          >
+          <Link to="/login" className="w-full max-w-xs px-6 py-3 border-2 border-white rounded-full font-bold text-lg hover:bg-white hover:text-[#544b47] transition-colors duration-300 cursor-pointer">
             Entrar
-          </button>
+          </Link>
         </div>
-        
-        {/* Painel Direito (Formulário de Criação de Conta) */}
         <div className="w-full md:w-1/2 p-10 sm:p-12">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#544b47] text-center mb-10">
             Crie sua conta
           </h1>
-          
-          <form className="space-y-5">
-            {/* Input de Nome de Usuário */}
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <div>
               <input
                 type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
                 placeholder="Nome de usuário"
                 className="w-full px-5 py-4 bg-[#f6f6f6] border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#8d827d]"
               />
             </div>
-
-            {/* Input de Email */}
             <div>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Email"
                 className="w-full px-5 py-4 bg-[#f6f6f6] border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#8d827d]"
               />
             </div>
-            
-            {/* Input de Senha */}
             <div>
               <input
                 type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 placeholder="Senha"
                 className="w-full px-5 py-4 bg-[#f6f6f6] border border-transparent rounded-xl text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#8d827d]"
               />
             </div>
-            
-            {/* Botão de Criar */}
             <div className="pt-4 flex justify-center">
               <button
                 type="submit"
@@ -61,22 +91,6 @@ const SignUp = () => {
               </button>
             </div>
           </form>
-
-          {/* Divisor "ou" */}
-          <div className="flex items-center my-6">
-            <div className="flex-grow border-t border-gray-300"></div>
-            <span className="mx-4 text-sm font-bold text-gray-500">ou</span>
-            <div className="flex-grow border-t border-gray-300"></div>
-          </div>
-
-          {/* Botão Secundário */}
-          <div className="flex justify-center">
-          <button
-            className="w-full max-w-xs px-6 py-3 border-2 text-white bg-[#6b5f5b] border-[#6b5f5b] rounded-full font-bold text-lg hover:bg-white hover:text-[#544b47] transition-colors duration-300 cursor-pointer"
-          >
-            Continuar sem login
-          </button>
-          </div>
         </div>
       </div>
     </div>

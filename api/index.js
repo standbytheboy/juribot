@@ -1,6 +1,6 @@
 // /api/index.js
 import dotenv from 'dotenv';
-dotenv.config(); // Carrega as variáveis de ambiente primeiro
+dotenv.config(); // Garante que as variáveis de ambiente sejam carregadas primeiro
 
 import express from 'express';
 import cors from 'cors';
@@ -25,7 +25,6 @@ app.use('/api/auth', authRouter);
 app.use('/api/chat', chatRouter);
 
 // Inicia o servidor para desenvolvimento local
-// (A Vercel usa o export default abaixo e ignora esta parte)
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
     console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
