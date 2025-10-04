@@ -1,4 +1,3 @@
-// /api/routes/chat.js
 import { Router } from 'express';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import authMiddleware from '../middleware/authMiddleware.js';
@@ -21,7 +20,7 @@ router.post('/', authMiddleware, async (req, res) => {
 
   try {
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash-latest",
+      model: "gemini-pro",
       // A instrução do sistema (personalidade do bot) é passada aqui
       systemInstruction: "Você é o JuriBot, um assistente jurídico amigável e prestativo. Sua missão é fornecer orientações claras e acessíveis sobre direitos, com base na legislação brasileira. Não forneça conselhos legais formais, mas sim informações educativas.",
     });
