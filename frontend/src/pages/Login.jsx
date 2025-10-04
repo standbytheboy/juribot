@@ -33,7 +33,10 @@ const Login = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#6c615c] p-4 font-sans">
       <div className="relative flex items-center">
-        {/* ... Barras decorativas ... */}
+
+        {/* Barras decorativas à direita */}
+        <div className="hidden md:block absolute top-0 bottom-0 left-[-100px] w-[60px] bg-[#544b47] rounded-l-2xl"></div>
+        <div className="hidden md:block absolute top-0 bottom-0 left-[-70px] w-[60px] bg-[#8d827d] rounded-l-2xl"></div>
         <div className="w-full max-w-md bg-white rounded-2xl shadow-lg z-10 p-10 sm:p-14">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#544b47] text-center leading-tight mb-12">
             Seja bem-vindo de volta!
