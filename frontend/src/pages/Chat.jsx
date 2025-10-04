@@ -34,6 +34,14 @@ const Chat = () => {
     e.preventDefault();
     if (!inputValue.trim()) return;
 
+    // Pega o token armazenado no login
+  const token = localStorage.getItem('authToken');
+  if (!token) {
+    alert('Você precisa estar logado para usar o chat.');
+    // Idealmente, redirecionar para a página de login aqui
+    return;
+  }
+
     // 1. Adiciona a mensagem do usuário à tela
     const userMessage = {
       id: Date.now(),
@@ -50,6 +58,7 @@ const Chat = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({ message: userMessage.text }),
     });

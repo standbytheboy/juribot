@@ -1,25 +1,36 @@
+// /api/index.js
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config(); // Carrega as variáveis de ambiente primeiro
+
 import express from 'express';
 import cors from 'cors';
-import chatRouter from './routes/chat.js'; // Importa nossa rota de chat
-
-// Carrega variáveis de ambiente do arquivo .env
+import mongoose from 'mongoose';
+import authRouter from './routes/auth.js';
+import chatRouter from './routes/chat.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middlewares essenciais
-app.use(cors()); // Habilita o CORS para todas as rotas
-app.use(express.json()); // Permite que o servidor entenda JSON
+// Middlewares
+app.use(cors());
+app.use(express.json());
 
-// Rota de teste
-app.get('/', (req, res) => {
-  res.send('API do JuriBot está funcionando!');
-});
+// Conexão com o MongoDB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('✅ MongoDB conectado com sucesso.'))
+  .catch((err) => console.error('❌ Falha na conexão com MongoDB:', err));
 
-// Usa as rotas de chat para qualquer requisição em /api/chat
+// Definição das Rotas
+app.use('/api/auth', authRouter);
 app.use('/api/chat', chatRouter);
 
-// Exporta o app para a Vercel (importante!)
+// Inicia o servidor para desenvolvimento local
+// (A Vercel usa o export default abaixo e ignora esta parte)
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
+  });
+}
+
+// Exporta o app para ser usado pela Vercel
 export default app;

@@ -1,25 +1,47 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import chatRouter from './routes/chat.js';
-import authRouter from './routes/auth.js';
+import { Router } from 'express';
+import OpenAI from 'openai';
+import authMiddleware from '../middleware/authMiddleware.js';
 
-dotenv.config();
+const router = Router();
 
-const app = express();
-const PORT = process.env.PORT || 3001;
+// Instancia o cliente da OpenAI com a chave de API
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-app.use(cors());
-app.use(express.json());
+// Rota POST para /api/chat
+router.post('/', authMiddleware, async (req, res) => {
+  const { message } = req.body;
 
-// Conexão com o MongoDB
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB conectado com sucesso.'))
-  .catch((err) => console.error('Falha na conexão com MongoDB:', err));
+  if (!message) {
+    return res.status(400).json({ error: 'Nenhuma mensagem fornecida.' });
+  }
 
-// Rotas
-app.use('/api/auth', authRouter); // Adiciona as rotas do auth
-app.use('/api/chat', chatRouter);
+  try {
+    // Chamada para a API da OpenAI
+    const completion = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo", // Modelo de linguagem
+      messages: [
+        {
+          role: "system",
+          content: "Você é o JuriBot, um assistente jurídico amigável e prestativo. Sua missão é fornecer orientações claras e acessíveis sobre direitos, com base na legislação brasileira. Não forneça conselhos legais formais, mas sim informações educativas."
+        },
+        {
+          role: "user",
+          content: message
+        }
+      ],
+    });
 
-export default app;
+    const aiResponse = completion.choices[0].message.content;
+
+    // Envia a resposta da IA de volta para o frontend
+    res.status(200).json({ reply: aiResponse });
+
+  } catch (error) {
+    console.error('Erro na API da OpenAI:', error);
+    res.status(500).json({ error: 'Ocorreu um erro ao comunicar com a IA.' });
+  }
+});
+
+export default router;
