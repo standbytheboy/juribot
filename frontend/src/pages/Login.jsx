@@ -73,6 +73,11 @@ const Login = () => {
               Redefinir senha?
             </Link>
           </div>
+          <div className="text-center mt-5">
+            <Link to={'/signup'} className="text-xs text-[#544b47] hover:underline">
+              Ainda não tem conta? Crie agora!
+            </Link>
+          </div>
         </div>
       </div>
     </div>

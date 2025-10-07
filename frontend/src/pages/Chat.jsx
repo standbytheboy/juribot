@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import mascotIcon from '../assets/juribot-mascot.png';
 import { useNavigate } from 'react-router-dom';
 import { Send } from 'akar-icons';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const Chat = () => {
   const navigate = useNavigate();
@@ -119,7 +121,17 @@ const Chat = () => {
                   : 'bg-white text-gray-800 rounded-bl-none shadow'
               }`}
             >
-              <p>{message.text}</p>
+              {message.sender === 'bot' ? (
+                // Para o bot, use ReactMarkdown com a classe 'prose'
+                <article className="prose prose-sm max-w-none">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {message.text}
+                  </ReactMarkdown>
+                </article>
+              ) : (
+                // Para o usuário, continue com a tag <p> simples
+                <p>{message.text}</p>
+              )}
             </div>
           </div>
         ))}
