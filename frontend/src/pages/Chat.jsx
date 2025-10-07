@@ -1,8 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import Header from '../components/Header'; // Reutilizamos o header existente
-import mascotIcon from '../assets/juribot-mascot.png'; // Ícone para o campo de input
+import { useState, useRef, useEffect } from 'react';
+import Header from '../components/Header';
+import mascotIcon from '../assets/juribot-mascot.png';
+import { useNavigate } from 'react-router-dom';
 
 const Chat = () => {
+  const navigate = useNavigate();
+
   // Estado para armazenar todas as mensagens da conversa
   const [messages, setMessages] = useState([
     {
@@ -12,7 +15,6 @@ const Chat = () => {
     },
   ]);
 
-  // Estado para controlar o valor do campo de input
   const [inputValue, setInputValue] = useState('');
   // Estado para mostrar um indicador de "digitando..." enquanto a IA processa
   const [isLoading, setIsLoading] = useState(false);
@@ -34,11 +36,11 @@ const Chat = () => {
     e.preventDefault();
     if (!inputValue.trim()) return;
 
-    // Pega o token armazenado no login
+  // Pega o token armazenado no login
   const token = localStorage.getItem('authToken');
   if (!token) {
     alert('Você precisa estar logado para usar o chat.');
-    // Idealmente, redirecionar para a página de login aqui
+    navigate('/login')
     return;
   }
 
@@ -53,7 +55,6 @@ const Chat = () => {
     setIsLoading(true);
 
     try {
-    // A URL da API no ambiente Vercel será relativa
     const response = await fetch('/api/chat', {
       method: 'POST',
       headers: {
@@ -87,7 +88,6 @@ const Chat = () => {
   } finally {
     setIsLoading(false);
   }
-  // --- FIM DO PONTO DE INTEGRAÇÃO ---
   };
 
   return (
