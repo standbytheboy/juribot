@@ -3,7 +3,7 @@ import globeIllustration from '../assets/globe-illustration.svg';
 const About = () => {
   return (
     // Container principal da seção
-    <section className="bg-[#fdf5ec] py-20 sm:py-24 font-sans">
+    <section id='sobre' className="bg-[#fdf5ec] py-20 sm:py-24 font-sans">
       <div className="container mx-auto px-6">
         
         {/* Wrapper flexível para as duas colunas */}

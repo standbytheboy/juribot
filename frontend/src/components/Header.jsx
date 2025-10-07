@@ -13,11 +13,11 @@ const Header = () => {
   };
 
   const navItems = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Como funciona', href: '#como-funciona' },
-    { name: 'Sobre', href: '#sobre' },
-    { name: 'Depoimentos', href: '#depoimentos' },
-    { name: 'Contato', href: '#contato' },
+    { name: 'Inicio', href: '/#inicio' },
+    { name: 'Como funciona', href: '/#como-funciona' },
+    { name: 'Sobre', href: '/#sobre' },
+    { name: 'Depoimentos', href: '/#depoimentos' },
+    { name: 'Contato', href: '/#contato' },
   ];
 
   return (
@@ -37,9 +37,9 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8 text-lg font-semibold text-[#544b47]">
             {navItems.map((item, index) => (
               <React.Fragment key={item.name}>
-                <a href={item.href} className="hover:text-[#6b5f5b] transition-colors duration-200">
+                 <Link to={item.href} className="hover:text-[#6b5f5b] transition-colors duration-200">
                   {item.name}
-                </a>
+                </Link>
                 {/* Separador vertical, exceto no último item */}
                 {index < navItems.length - 1 && (
                   <span className="text-[#544b47]">|</span>

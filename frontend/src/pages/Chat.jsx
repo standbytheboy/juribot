@@ -47,7 +47,7 @@ const Chat = () => {
     return;
   }
 
-    // 1. Adiciona a mensagem do usuário à tela
+    // Adiciona a mensagem do usuário à tela
     const userMessage = {
       id: Date.now(),
       text: inputValue,
@@ -70,7 +70,7 @@ const Chat = () => {
     if (response.status === 401) {
       localStorage.removeItem('authToken'); // Limpa o token inválido
       alert('Sua sessão expirou. Por favor, faça login novamente.');
-      navigate('/login'); // Redireciona para o login
+      navigate('/login');
       return;
     }
 
@@ -122,14 +122,14 @@ const Chat = () => {
               }`}
             >
               {message.sender === 'bot' ? (
-                // Para o bot, use ReactMarkdown com a classe 'prose'
+                // Para o bot, usar ReactMarkdown com a classe 'prose'
                 <article className="prose prose-sm max-w-none">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {message.text}
                   </ReactMarkdown>
                 </article>
               ) : (
-                // Para o usuário, continue com a tag <p> simples
+                // Para o usuário, usar tag <p> simples
                 <p>{message.text}</p>
               )}
             </div>

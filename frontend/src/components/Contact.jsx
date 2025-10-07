@@ -3,7 +3,7 @@ import mascotContact from '../assets/mascot-contact.png';
 
 const Contact = () => {
   return (
-    <section className="bg-[#fdf5ec] py-20 sm:py-24 font-sans">
+    <section id='contato' className="bg-[#fdf5ec] py-20 sm:py-24 font-sans">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl sm:text-5xl font-extrabold text-[#544b47] text-center mb-8">
           Contate-nos

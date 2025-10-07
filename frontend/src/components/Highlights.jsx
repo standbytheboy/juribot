@@ -3,7 +3,7 @@ import TestimonialsCarousel from './TestmonialsCarousel';
 
 const Highlights = () => {
   return (
-    <section className="py-20 sm:py-24 font-sans overflow-hidden">
+    <section id='depoimentos' className="py-20 sm:py-24 font-sans overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
 
