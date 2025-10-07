@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import ResetPassword from './pages/ResetPassword'
+import ProtectedRoute from './pages/ProtectedRoute'
 
 function App() {
 
@@ -13,7 +14,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />}/>
-          <Route path='/chat' element={<Chat />}/>
+          <Route path='/chat' element={
+            <ProtectedRoute>
+              <Chat />
+            </ProtectedRoute>
+          } />
           <Route path='/login' element={<Login />}/>
           <Route path='/signup' element={<SignUp />}/>
           <Route path='/password' element={<ResetPassword />}/>

@@ -65,6 +65,13 @@ const Chat = () => {
       body: JSON.stringify({ message: userMessage.text }),
     });
 
+    if (response.status === 401) {
+      localStorage.removeItem('authToken'); // Limpa o token inválido
+      alert('Sua sessão expirou. Por favor, faça login novamente.');
+      navigate('/login'); // Redireciona para o login
+      return;
+    }
+
     if (!response.ok) {
       throw new Error('A resposta da rede não foi OK');
     }

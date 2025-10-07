@@ -1,8 +1,17 @@
 import React from 'react';
 import Logo from '../assets/logotipo.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { Door } from 'akar-icons';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const token = localStorage.getItem('authToken'); // Verifica se o usuário está logado
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    navigate('/login');
+  };
+
   const navItems = [
     { name: 'Inicio', href: '#inicio' },
     { name: 'Como funciona', href: '#como-funciona' },
@@ -45,6 +54,18 @@ const Header = () => {
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
           </div>
+
+          {/* Botão de Logout */}
+          {token && (
+            <div className="hidden md:flex items-center ml-8">
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 bg-[#544b47] text-white font-semibold rounded-lg hover:bg-[#433b37] transition-colors cursor-pointer"
+              >
+                <Door />
+              </button>
+            </div>
+          )}
         </nav>
       </div>
     </header>
