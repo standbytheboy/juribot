@@ -3,14 +3,14 @@ import globeIllustration from '../assets/globe-illustration.svg';
 const About = () => {
   return (
     // Container principal da seção
-    <section id='sobre' className="bg-[#fdf5ec] py-20 sm:py-24 font-sans">
+    <section id='sobre' className="bg-[#fdf5ec] py-20 sm:py-32 font-sans h-[50rem] flex flex-col justify-center items-center">
       <div className="container mx-auto px-6">
         
         {/* Wrapper flexível para as duas colunas */}
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-16">
 
           {/* Coluna de Texto (Esquerda) */}
-          <div className="w-full md:w-3/5 text-center md:text-left">
+          <div className="w-full md:w-2/5 text-center md:text-left">
             <h2 className="text-4xl sm:text-5xl font-extrabold text-[#483121] mb-6">
               Sobre a JuriTech
             </h2>
@@ -23,11 +23,11 @@ const About = () => {
           </div>
 
           {/* Coluna da Imagem e Estatística (Direita) */}
-          <div className="w-full md:w-2/5 flex flex-col items-center">
+          <div className="w-full md:w-3/5 flex flex-col items-center">
             <img 
               src={globeIllustration} 
               alt="Ilustração de um globo terrestre com folhas"
-              className="w-56 h-56 sm:w-64 sm:h-64 object-contain mb-6"
+              className="w-96 h-96 sm:w-[35rem] sm:h-[35rem] object-contain mb-6"
             />
             <p className="text-xl font-bold text-[#483121]">
               +999999 pessoas atendidas
