@@ -101,7 +101,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-[#fdf5ec] font-sans">
+    <div className="flex flex-col h-screen bg-[#FFF9E9] font-sans">
       <Header />
 
       {/* Área de Mensagens */}

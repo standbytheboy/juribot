@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
     // Container principal do header com fundo e bordas
-    <header className="w-full bg-[#fdf5ec] font-sans py-2">
+    <header className="w-full bg-[#FFF9E9] font-sans py-2">
       <div className="max-w-7xl mx-auto rounded-lg">
         <nav className="flex items-center justify-between p-4 sm:p-6">
           

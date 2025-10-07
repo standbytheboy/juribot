@@ -3,7 +3,7 @@ import juribotMascot from "../assets/juribot-mascot.png";
 
 const Hero = () => {
   return (
-    <section className="bg-[#fdf5ec] font-sans">
+    <section className="bg-[#FFF9E9] font-sans">
       <div className="container mx-auto flex flex-col md:flex-row items-center px-6 py-12 sm:py-24">
         {/* Coluna de Texto */}
         <div className="w-full md:w-1/2 text-center md:text-left">
