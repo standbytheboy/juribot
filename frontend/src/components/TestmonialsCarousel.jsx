@@ -32,17 +32,17 @@ const TestimonialsCarousel = () => {
   return (
     <section className="py-20 sm:py-24 font-sans">
       <div className="container mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-[#544b47] text-center mb-12">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-[#483121] text-center mb-12">
           Depoimentos
         </h2>
 
         {/* Container rolável */}
-        <div className="max-w-lg mx-auto bg-[#7f736e] p-4 sm:p-6 rounded-2xl h-[28rem] overflow-y-auto space-y-4">
+        <div className="max-w-lg mx-auto bg-[#483121] p-4 sm:p-6 rounded-2xl h-[28rem] overflow-y-auto space-y-4">
           {testimonials.map((testimonial, index) => (
             // Card de Depoimento
             <div 
               key={index} 
-              className={`p-5 rounded-xl flex items-start gap-4 bg-[#948782]`}
+              className={`p-5 rounded-xl flex items-start gap-4 bg-[#694a34]`}
             >
               {/* Avatar */}
               <div className={`flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-white`}>

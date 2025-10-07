@@ -26,7 +26,7 @@ const HowItWorks = () => {
     <section id='como-funciona' className="bg-white py-20 sm:py-24">
       <div className="container mx-auto px-6">
         
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-[#544b47] mb-16">
+        <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-[#483121] mb-16">
           Como funciona
         </h2>
         
@@ -41,12 +41,12 @@ const HowItWorks = () => {
                 {/* 2. Renderize a variável como uma tag JSX */}
                 {/* Também podemos passar props como className, size, etc. */}
                 <IconComponent 
-                  className="text-[#544b47] mb-6" 
+                  className="text-[#483121] mb-6" 
                   size={100} // A maioria das libs aceita size como prop
                   strokeWidth={1.5}
                 />
                 
-                <h3 className="text-2xl font-bold text-[#544b47] mb-3">
+                <h3 className="text-2xl font-bold text-[#483121] mb-3">
                   {step.title}
                 </h3>
                 

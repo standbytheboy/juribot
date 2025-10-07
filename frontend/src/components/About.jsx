@@ -11,7 +11,7 @@ const About = () => {
 
           {/* Coluna de Texto (Esquerda) */}
           <div className="w-full md:w-3/5 text-center md:text-left">
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-[#544b47] mb-6">
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-[#483121] mb-6">
               Sobre a JuriTech
             </h2>
             <p className="text-lg text-gray-800 leading-relaxed">
@@ -29,7 +29,7 @@ const About = () => {
               alt="Ilustração de um globo terrestre com folhas"
               className="w-56 h-56 sm:w-64 sm:h-64 object-contain mb-6"
             />
-            <p className="text-xl font-bold text-[#544b47]">
+            <p className="text-xl font-bold text-[#483121]">
               +999999 pessoas atendidas
             </p>
           </div>

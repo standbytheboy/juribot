@@ -117,7 +117,7 @@ const Chat = () => {
             <div
               className={`max-w-4xl px-5 py-3 rounded-2xl ${
                 message.sender === 'user'
-                  ? 'bg-[#544b47] text-white rounded-br-none'
+                  ? 'bg-[#483121] text-white rounded-br-none'
                   : 'bg-white text-gray-800 rounded-bl-none shadow'
               }`}
             >
@@ -161,7 +161,7 @@ const Chat = () => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Digite sua dúvida aqui"
-            className="w-full px-5 py-3 bg-white border-2 border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-[#544b47] shadow transition"
+            className="w-full px-5 py-3 bg-white border-2 border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-[#483121] shadow transition"
           />
           <button type="submit"><Send className='cursor-pointer'/></button>
         </form>

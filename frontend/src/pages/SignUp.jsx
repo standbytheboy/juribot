@@ -38,17 +38,17 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[#6b5f5b] p-4 font-sans">
+    <div className="flex items-center justify-center min-h-screen bg-[#664731] p-4 font-sans">
       <div className="flex flex-col md:flex-row w-full max-w-4xl bg-white shadow-lg rounded-2xl overflow-hidden">
-        <div className="w-full md:w-1/2 p-10 sm:p-12 flex flex-col justify-center items-center text-center bg-[#544b47] text-white">
+        <div className="w-full md:w-1/2 p-10 sm:p-12 flex flex-col justify-center items-center text-center bg-[#483121] text-white">
           <h2 className="text-4xl font-extrabold mb-4 leading-tight">Já tem uma conta?</h2>
           <p className="mb-8 text-gray-300">Acesse a sua conta agora mesmo</p>
-          <Link to="/login" className="w-full max-w-xs px-6 py-3 border-2 border-white rounded-full font-bold text-lg hover:bg-white hover:text-[#544b47] transition-colors duration-300 cursor-pointer">
+          <Link to="/login" className="w-full max-w-xs px-6 py-3 border-2 border-white rounded-full font-bold text-lg hover:bg-white hover:text-[#483121] transition-colors duration-300 cursor-pointer">
             Entrar
           </Link>
         </div>
         <div className="w-full md:w-1/2 p-10 sm:p-12">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#544b47] text-center mb-10">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-[#483121] text-center mb-10">
             Crie sua conta
           </h1>
           <form className="space-y-5" onSubmit={handleSubmit}>
@@ -85,7 +85,7 @@ const SignUp = () => {
             <div className="pt-4 flex justify-center">
               <button
                 type="submit"
-                className="w-full max-w-xs px-6 py-3 border-2 text-white bg-[#6b5f5b] border-[#6b5f5b] rounded-full font-bold text-lg hover:bg-white hover:text-[#544b47] transition-colors duration-300 cursor-pointer"
+                className="w-full max-w-xs px-6 py-3 border-2 text-white bg-[#664731] border-[#664731] rounded-full font-bold text-lg hover:bg-white hover:text-[#483121] transition-colors duration-300 cursor-pointer"
               >
                 Criar
               </button>
