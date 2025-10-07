@@ -21,7 +21,7 @@ const Login = () => {
       if (response.ok) {
         const { token } = await response.json();
         localStorage.setItem('authToken', token); // Armazena o token
-        navigate('/chat'); // Redireciona para o chat
+        navigate('/chat');
       } else {
         alert('Email ou senha incorretos.');
       }
@@ -34,7 +34,7 @@ const Login = () => {
     <div className="flex items-center justify-center min-h-screen bg-[#6c615c] p-4 font-sans">
       <div className="relative flex items-center">
 
-        {/* Barras decorativas à direita */}
+        {/* Barras decorativas à esquerda */}
         <div className="hidden md:block absolute top-0 bottom-0 left-[-100px] w-[60px] bg-[#544b47] rounded-l-2xl"></div>
         <div className="hidden md:block absolute top-0 bottom-0 left-[-70px] w-[60px] bg-[#8d827d] rounded-l-2xl"></div>
         <div className="w-full max-w-md bg-white rounded-2xl shadow-lg z-10 p-10 sm:p-14">
