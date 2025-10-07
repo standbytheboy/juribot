@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import Header from '../components/Header';
 import mascotIcon from '../assets/juribot-mascot.png';
 import { useNavigate } from 'react-router-dom';
+import { Send } from 'akar-icons';
 
 const Chat = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Chat = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: 'Por onde devemos começar?',
+      text: 'Olá! Sou o JuriBot, um assistente jurídico amigável e prestativo. Estou aqui para fornecer orientações claras e acessíveis sobre direitos, com base na legislação brasileira. Como posso ajudar você hoje?',
       sender: 'bot',
     },
   ]);
@@ -105,7 +106,7 @@ const Chat = () => {
               <img src={mascotIcon} alt="JuriBot" className="w-10 h-10 flex-shrink-0" />
             )}
             <div
-              className={`max-w-lg px-5 py-3 rounded-2xl ${
+              className={`max-w-4xl px-5 py-3 rounded-2xl ${
                 message.sender === 'user'
                   ? 'bg-[#544b47] text-white rounded-br-none'
                   : 'bg-white text-gray-800 rounded-bl-none shadow'
@@ -143,7 +144,7 @@ const Chat = () => {
             placeholder="Digite sua dúvida aqui"
             className="w-full px-5 py-3 bg-white border-2 border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-[#544b47] shadow transition"
           />
-          <button type="submit" className="hidden">Enviar</button> {/* Botão oculto para envio com Enter */}
+          <button type="submit"><Send className='cursor-pointer'/></button>
         </form>
       </div>
     </div>

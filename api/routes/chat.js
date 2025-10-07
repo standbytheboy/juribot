@@ -1,10 +1,10 @@
+import 'dotenv/config';
 import { Router } from 'express';
 import { CohereClient } from 'cohere-ai';
 import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = Router();
 
-// Valida se a chave de API da Cohere existe
 if (!process.env.COHERE_API_KEY) {
   throw new Error("A variável de ambiente COHERE_API_KEY não está definida.");
 }
