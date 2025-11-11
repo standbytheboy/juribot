@@ -21,11 +21,11 @@ const Hero = () => {
                 Experimente o JuriBot
               </button>
             </Link>
-            <Link to={'/'}>
+            {/* <Link to={'/'}>
               <button className="cursor-pointer px-8 py-3 border-2 border-[#483121] text-[#483121] font-bold rounded-lg hover:bg-[#483121] hover:text-white transition-colors duration-300">
                 Saiba mais
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
 

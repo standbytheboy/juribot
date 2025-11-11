@@ -105,7 +105,7 @@ const Chat = () => {
       <Header />
 
       {/* Área de Mensagens */}
-      <div className="flex-grow overflow-y-auto p-6 space-y-6">
+      <div className="flex-grow overflow-y-auto p-6 space-y-6 lg:px-24">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -123,14 +123,14 @@ const Chat = () => {
             >
               {message.sender === 'bot' ? (
                 // Para o bot, usar ReactMarkdown com a classe 'prose'
-                <article className="prose prose-sm max-w-none">
+                <article className="prose prose-sm max-w-none lg:text-2xl text-[16px]">
                   <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {message.text}
                   </ReactMarkdown>
                 </article>
               ) : (
                 // Para o usuário, usar tag <p> simples
-                <p>{message.text}</p>
+                <p className="lg:text-2xl text-[16px]">{message.text}</p>
               )}
             </div>
           </div>
