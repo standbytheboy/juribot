@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import ResetPassword from './pages/ResetPassword'
 import ProtectedRoute from './pages/ProtectedRoute'
+import Members from './pages/Members'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/login' element={<Login />}/>
           <Route path='/signup' element={<SignUp />}/>
           <Route path='/password' element={<ResetPassword />}/>
+          <Route path='/members' element={<Members />}/>
         </Routes>
       </BrowserRouter>
     </>
