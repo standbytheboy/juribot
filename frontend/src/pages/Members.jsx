@@ -2,6 +2,7 @@ import TeamMemberCard from "../components/TeamMemberCard";
 import leo from "../assets/leo.jpeg";
 import gabriel from "../assets/gabriel.jpeg";
 import enzo from "../assets/enzo.jpeg";
+import gui from "../assets/gui.jpeg";
 import Header from "../components/Header";
 
 const Members = () => {
@@ -40,7 +41,7 @@ const Members = () => {
             name="Guilherme Luis"
             role="Desenvolvedor Back-end"
             description="Trabalha com Node.js, bancos de dados e APIs."
-            imageUrl=""
+            imageUrl={gui}
           />
         </div>
         <section className="text-center py-16">
